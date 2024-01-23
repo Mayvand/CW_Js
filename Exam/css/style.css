@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yellowtail&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.container .button {
+  padding: 20px 11px 22px 33px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+}
+.container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 30px;
+}
+.container .header__left {
+  display: flex;
+  align-items: center;
+}
+.container .header__left .header__logo {
+  max-width: 200px;
+}
+.container .header__left .header__logo img {
+  width: 100%;
+}
+.container .header__left .header__nav {
+  max-width: 665px;
+}
+.container .header__left .header__nav nav ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-left: 120px;
+  padding-right: 20px;
+  list-style: none;
+}
+.container .header__left .header__nav nav ul li a {
+  display: inline-block;
+  padding: 20px 0;
+  text-decoration: none;
+  color: #274C5B;
+  font-family: Roboto;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.36px;
+}
+.container .header__left .header__nav nav ul li a:hover {
+  color: #7EB693;
+}
+.container .header .header__cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  max-width: 159px;
+  padding: 7px 24px 7px 11px;
+  border-radius: 33px;
+  border: 1px solid #D4D4D4;
+  cursor: pointer;
+}
+.container .header .header__cart a {
+  display: inline-block;
+  text-decoration: none;
+  color: #274C5B;
+}
+.container .header .header__cart .cart {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background: url(../img/Cart.svg) no-repeat, #274C5B;
+  background-position: center;
+}
+.container .header .header__cart .cart__link {
+  padding: 15px 0;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28.8px;
+  letter-spacing: 0.36px;
+}
+.container .header .header__cart:hover a {
+  color: #7EB693;
+}
+.container .header .header__cart:hover .cart {
+  background: url(../img/Cart.svg) no-repeat, #7EB693;
+  background-position: center;
+}
+.container main .promo {
+  background: url(../img/Promo_bg.png) no-repeat;
+  background-size: cover;
+}
+.container main .promo .promo__container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding-top: 220px;
+  padding-bottom: 250px;
+}
+.container main .promo .promo__container .promo__subtitle {
+  color: #7EB693;
+  font-family: Yellowtail;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 64.8px;
+  letter-spacing: 0.36px;
+  text-transform: capitalize;
+}
+.container main .promo .promo__container .promo__title {
+  margin-top: 14px;
+  color: #274C5B;
+  font-family: Roboto;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 84px;
+  letter-spacing: 0.36px;
+  max-width: 496px;
+}
+.container main .promo .promo__container .promo__button {
+  background-color: #EFD372;
+  margin-top: 55px;
+}
+.container main .promo .promo__container .promo__button a {
+  color: #274C5B;
+  font-family: Roboto;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.36px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+.container main .offers {
+  padding: 140px 0;
+}
+.container main .offers .offers__container {
+  max-width: 1380px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 0 auto;
+  flex: 1 1;
+}
+.container main .offers .offers__container .offers__item {
+  width: 665px;
+  padding: 105px 0 105px 55px;
+}
+.container main .offers .offers__container .offers__item .offers__subtitle {
+  font-family: Yellowtail;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 64.8px;
+  letter-spacing: 0.36px;
+}
+.container main .offers .offers__container .offers__item .offers__text {
+  font-family: Roboto;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 52px;
+  letter-spacing: 0.36px;
+  max-width: 264px;
+}
+.container main .offers .offers__container .offers__natural {
+  background: url(../img/offers_natural_bg.png) no-repeat;
+  background-size: cover;
+}
+.container main .offers .offers__container .offers__natural .offers__subtitle, .container main .offers .offers__container .offers__natural .offers__text {
+  color: #fff;
+}
+.container main .offers .offers__container .offers__offer {
+  background: url(../img/offers_offer_bg.png) no-repeat;
+  background-size: cover;
+}
+.container main .offers .offers__container .offers__offer .offers__subtitle {
+  color: #7EB693;
+}
+.container main .offers .offers__container .offers__offer .offers__text {
+  color: #274C5B;
+}/*# sourceMappingURL=style.css.map */
