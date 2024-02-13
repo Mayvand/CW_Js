@@ -33,27 +33,42 @@ Object.defineProperty(lamp, 'power', {
 
 console.log(lamp.toggle());
 
-function Lamp(power, voltage) {
+function Lamp(power, voltage, cost) {
 	this.status = false;
-	// this._power = power;
-	// this._voltage = voltage;
-
-	let self = this;
+	this.cost = cost; // цена за время работы в часах
+	this.time = 0;
+	this.timerId = null;
 
 	this.toggle = function () {
 		this.status = !this.status;
+		if (!this.status) {
+			clearInterval(this.timerId);
+		} else {
+			this.timer();
+		}
 		return this.status ? 'Лампа включена' : 'Лампа выключена';
 	};
-	this.info = function () {
-		return `Статус: ${
-			this.status
-		}, мощность: ${this.power()}, напряжение: ${this.voltage()}`;
+
+	this.timer = () => {
+		this.timerId = setInterval(() => {
+			this.time += 1;
+		}, 1000);
 	};
 
-	this.test = function () {
-		console.log(this);
-		setTimeout(privateMethod, 3000);
+	this.getCost = () => {
+		return this.cost * (parseFloat(this.power) * (this.time / 3600));
 	};
+
+	this.info = function () {
+		return `Статус: ${this.status}, мощность: ${this.power}, напряжение: ${
+			this.voltage
+		}, потрачено денег на работу лампы: ${this.getCost()}`;
+	};
+
+	// this.test = function () {
+	// 	console.log(this);
+	// 	setTimeout(privateMethod, 3000);
+	// };
 
 	Object.defineProperties(this, {
 		power: {
@@ -64,9 +79,7 @@ function Lamp(power, voltage) {
 					power = val;
 				}
 			},
-			get: () => {
-				`${power}W`;
-			},
+			get: () => `${power}W`,
 		},
 		voltage: {
 			enumerable: false,
@@ -76,9 +89,7 @@ function Lamp(power, voltage) {
 					voltage = val;
 				}
 			},
-			get: () => {
-				`${voltage}V`;
-			},
+			get: () => `${voltage}V`,
 		},
 	});
 
@@ -86,11 +97,27 @@ function Lamp(power, voltage) {
 	// 	console.log(self.getPower());
 	// }
 
-	const privateMethod = () => {
-		console.log(this.getPower());
-	};
+	// const privateMethod = () => {
+	// 	console.log(this.getPower());
+	// };
 
-	Lamp.counter++;
+	// Lamp.counter++;
+}
+
+class Lamp2 {
+	constructor(power, voltage) {
+		this.status = false;
+		this._power = power;
+		this._voltage = voltage;
+	}
+
+	set power(val) {
+		this._power = val;
+	}
+
+	get power() {
+		return this._power;
+	}
 }
 
 Lamp.counter = 0;
@@ -98,7 +125,7 @@ Lamp.getCounter = function () {
 	return Lamp.counter;
 };
 
-const lamp40 = new Lamp(40, 220);
-const lamp10 = new Lamp(100, 20);
-const lamp20 = new Lamp(20, 210);
-const lamp30 = new Lamp(30, 200);
+const lamp40 = new Lamp2(40, 220, 1);
+const lamp10 = new Lamp(100, 20, 1);
+const lamp20 = new Lamp(20, 210, 1);
+const lamp30 = new Lamp(30, 200, 1);
